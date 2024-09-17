@@ -24,19 +24,19 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
 
   // Send the data to Google Sheets via POST request
   fetch(scriptURL, {
-    method: 'POST',
-    body: JSON.stringify(data),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  .then(response => response.json())
-  .then(result => {
-    // Display the prize to the user
-    document.getElementById('prizeData').innerText = `Hello, ${name} from ${department}, you won a ${randomPrize}!`;
-    console.log('Success:', result);
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
+  method: 'POST',
+  body: JSON.stringify(data),
+  headers: {
+    'Content-Type': 'application/json' // Ensure we are sending JSON
+  }
+})
+.then(response => response.json())
+.then(result => {
+  console.log('Success:', result);
+  // Display the prize to the user
+  document.getElementById('prizeData').innerText = `Hello, ${name} from ${department}, you won a ${randomPrize}!`;
+})
+.catch(error => {
+  console.error('Error:', error);
+});
 });
