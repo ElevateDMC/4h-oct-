@@ -1,6 +1,6 @@
 // Listen for form submission
 document.getElementById('userForm').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent form from submitting the traditional way
+  event.preventDefault(); // Prevent the default form submission
   
   // Get the value from the form input
   const name = document.getElementById('name').value;
